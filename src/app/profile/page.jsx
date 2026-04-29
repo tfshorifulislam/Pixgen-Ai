@@ -1,4 +1,5 @@
 'use client'
+import { UpdateUserModal } from '@/components/UpdateUserInfo';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, Card } from '@heroui/react';
 import React from 'react';
@@ -8,27 +9,28 @@ const ProfilePage = () => {
     const user = data.data?.user
     console.log(user)
     return (
-        <div>
-            <Card className='mt-10 shadow-xl flex justify-center items-center'>
-                <Avatar>
-                    <Avatar.Image
 
-                        alt=''
-                        src={user?.image}
-                        referrerPolicy="no-referrer"
-                    />
+        <Card className=''>
+            <Avatar>
+                <Avatar.Image
 
-                    <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
-                </Avatar>
-                <p>
-                    {user?.name}
-                </p>
-                <p>
-                    {user?.email}
-                </p>
-            </Card>
+                    alt=''
+                    src={user?.image}
+                    referrerPolicy="no-referrer"
+                />
 
-        </div>
+                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
+            <p>
+                {user?.name}
+            </p>
+            <p>
+                {user?.email}
+            </p>
+            <UpdateUserModal />
+        </Card>
+
+
     );
 };
 
